@@ -66,6 +66,8 @@ public class TerminalActivity extends Activity {
 		mPay = (Button) findViewById(R.id.bpay);
 		mAmt = (TextView) findViewById(R.id.tvamt);
 		mMerchant = (TextView) findViewById(R.id.tvmerchant);
+		
+		mMerchant.setText(getString(R.string.version) + " " + getString(R.string.txt_logout));
 
 		mOne.setOnClickListener(mButtonListener);
 		mTwo.setOnClickListener(mButtonListener);
@@ -159,7 +161,7 @@ public class TerminalActivity extends Activity {
 
 						@Override
 						public void run() {
-							mMerchant.setText(R.string.txt_logout);
+							mMerchant.setText(getString(R.string.version) + " " + getString(R.string.txt_logout));
 						}
 					});
 				}
@@ -175,7 +177,7 @@ public class TerminalActivity extends Activity {
 						@Override
 						public void run() {
 							progress.dismiss();
-							mMerchant.setText(getString(R.string.txt_login) + " " + mLogin.getMerchantName());
+							mMerchant.setText(getString(R.string.version) + " " + getString(R.string.txt_login) + " " + mLogin.getMerchantName());
 							Toast.makeText(getApplicationContext(), mLogin.getResponseMsg(), Toast.LENGTH_LONG).show();
 						}
 					});
